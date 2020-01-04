@@ -40,3 +40,9 @@ services:
       - TZ=${TZ}
     volumes:
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+  node:
+    image: node:12.14-alpine
+    tty: true
+    volumes:
+      - ./laravel-app:/workspace
+    working_dir: /workspace
