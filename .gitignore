@@ -1,0 +1,19 @@
+.php_cs.cache
+.phpunit.result.cache
+.php-version
+
+*.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+*.log
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Dependency
+node_modules
+vendor
+
+# Distribution
