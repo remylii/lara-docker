@@ -19,6 +19,7 @@ services:
       args:
         - TZ=${TZ}
     container_name: i_app1
+    working_dir: /workspace
     environment:
       - TZ=${TZ}
     volumes:
@@ -38,4 +39,4 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - TZ=${TZ}
     volumes:
-      - ./docker/mysql/my.conf:/etc/mysql/conf.d/my.cnf
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
