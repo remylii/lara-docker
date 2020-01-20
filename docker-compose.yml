@@ -3,7 +3,7 @@ version: "3"
 services:
   web:
     image: nginx:1.17-alpine
-    container_name: i_web1
+    container_name: la_web1
     depends_on:
       - app
     ports:
@@ -18,18 +18,18 @@ services:
       context: ./docker/php
       args:
         - TZ=${TZ}
-    container_name: i_app1
+    container_name: la_app1
     working_dir: /workspace
     environment:
       - TZ=${TZ}
     volumes:
       - ./docker/ash:/etc/profile.d
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
-      - ./laravel-app:/workspace
       - ./docker/php/psysh:/root/.config/psysh
+      - laravel-store:/workspace
   db:
     image: mysql:8.0
-    container_name: i_db1
+    container_name: la_db1
     ports:
       - 13306:3306
     environment:
@@ -40,9 +40,15 @@ services:
       - TZ=${TZ}
     volumes:
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - db-store:/var/lib/mysql
   node:
     image: node:12.14-alpine
     tty: true
     volumes:
       - ./laravel-app:/workspace
     working_dir: /workspace
+
+volumes:
+  laravel-store:
+    external: true
+  db-store:

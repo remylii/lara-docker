@@ -1,0 +1,23 @@
+version: "2"
+
+sync_default: &sync_default
+  notify_terminal: true
+  # IP
+  # sync_host_ip: '127.0.0.1'
+  sync_excludes: [".gitignore", ".git/"]
+
+  # how to sync
+  sync_strategy: "unison"
+
+  # sync_userid: "1000"
+
+  watch_excludes: ["/.gitignore", "/.git/", "/vendor/", "/node_modules/"]
+
+  watch_args: "-v"
+
+  watch_strategy: "fswatch"
+
+syncs:
+  laravel-store:
+    # host path
+    src: "./laravel-app"

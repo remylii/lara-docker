@@ -101,4 +101,5 @@ return [
     // exception thrown) if multiple configuration or data files are found.
     //
     // This will default to true in a future release, but is false for now.
-    'warnOnMultipleConf
+    'warnOnMultipleConfigs' => true,
+];

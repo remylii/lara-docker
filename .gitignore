@@ -9,6 +9,8 @@ Icon
 ._*
 *.log
 
+.docker-sync
+
 # Coverage directory used by tools like istanbul
 coverage
 
